@@ -1,0 +1,72 @@
+﻿@model Placemark
+@{
+}
+@section Styles{
+	<link rel="stylesheet" href="~/css/Place.css">
+}
+
+	
+	<div class="container">
+		<div class="hotel__info">
+			<div class="hotel__about">
+				<div class="star__img">
+				@for(int i = 0; i < Model.Stars; i++){
+					<img width="10px" src="~/img/full_star.png">
+				}
+				</div>
+				<h1 class="hotel__name">@Model.Name</h1>
+
+			<div class="slider">
+				<div class="slider__inner">
+					<button class="slider__btn" id="left__slide"><</button>
+					<div class="slider__content">
+						@foreach (var imagePath in Model.Images.Split("||"))
+						{
+							<img class="slider__img" src=@imagePath>
+						}
+					</div>
+					<button class="slider__btn" id="right__slide">></button>
+				</div>
+			</div>
+			<p class="hotel__desc">@Model.Description</p>
+			</div>
+
+			<div class="hotel__card">
+				<h3 class="hotel__rate">
+					<div class="num__text">Рейтинг:</div>
+					@Model.Rating
+				</h3>
+				<div class="card__inner">
+					<div class="hotel__price">
+						<div class="price__info">начальная цена</div>
+						<div class="price">@Model.Price</div>
+						<div class="price__info">за номер в сутки</div>
+						
+					</div>
+					<div class="hotel__number">
+						<div class="hotel__num">
+							<div class="num__text">Номер:</div>
+							@Model.Number
+						</div>
+						<h3>
+							<div class="num__text">Расписание:</div>
+							@Model.WorkSchedule
+						</h3>
+					</div>
+				</div>
+				<div id="map" data-place-id=@Model.PlacemarkId>
+				</div>
+			</div>
+
+		
+		
+			
+			
+		</div>
+		
+	</div>
+@section scripts{
+	<script src="~/js/site.js"></script>
+	<script src="https://mapgl.2gis.com/api/js/v1"></script>
+	<script type="text/javascript" src="~/js/HotelMap.js"></script>
+}

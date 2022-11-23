@@ -1,0 +1,76 @@
+﻿@model MainViewModel
+@section Styles{<link rel="stylesheet" href="~/css/Main.css">}
+
+	<div class="slider">
+		<div class="slider__inner">
+			<button class="slider__btn" id="left__slide"><</button>
+			<div class="slider__content">
+        		<img class="slider__img" src="~/img/main_slider1.jpg">
+				<img class="slider__img" src="~/img/main_slider2.jpg">
+				<img class="slider__img" src="~/img/main_slider3.jpg">
+			</div>
+			<button class="slider__btn" id="right__slide">></button>
+        </div>
+	</div>
+
+	<div class="intro">
+		<div class="intro__inner">
+			<div class="intro__inner__main">Незабываемые приключения</div>
+			<div class="intro__inner__post">Плохо ли это или хорошо — не важно. Но вот факт: Махачкала — город, от которого совершенно непонятно, чего ожидать. А раз так, любой попавший сюда путешественник непременно столкнётся с сюрпризами и всевозможными открытиями. Казалось бы — вот прекрасная возможность самому всё разложить по полочкам, но — нет: каждый новый час Махачкала будет менять цвет, словно хамелеон, форму, как детский трансформер, и настроение, будто подросток в пубертате. И это — здорово! Однако же, настраиваясь на подобную переменчивость, о столице Дагестана стоит кое-что узнать заранее.</div>
+		</div>
+		<div class="intro__img"><img class="intro__img__inner" src="~/img/phone.jpg"></div>
+	</div>
+
+
+	<div class="descp">
+
+		<div class="descp__inner">
+			<div class="descp__inner__block">
+				<div class="descp__inner__block__count">17</div>
+				<div class="descp__inner__block__txt">Различных направлений</div>
+			</div>
+			<div class="descp__inner__block">
+				<div class="descp__inner__block__count">101</div>
+				<div class="descp__inner__block__txt">Отель</div>
+			</div>
+			<div class="descp__inner__block">
+				<div class="descp__inner__block__count">200</div>
+				<div class="descp__inner__block__txt">Достопримичательносей</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<div class="attractions">
+		<div class="attractions__txt">Достопримечательности</div>
+
+		<div class="card__line">
+		@foreach (var attraction in Model.Attractions)
+		{
+			<div class="card">
+				<img class="card__img" src="@attraction.Images?.Split("||").First()">
+				<div class="card__txt">@attraction.Name</div>
+			</div>
+		}
+		</div>
+		<div class="attractions__btn__res"><a class="attractions__btn" asp-controller="Main" asp-action="ListItems" asp-route-type="attraction">Показать все</a></div>
+	</div>
+
+
+	<div class="hotel">
+		<div class="hotel__txt">Отели</div>
+
+		<div class="hotel__inner">
+
+			@foreach(var hotel in Model.Hotels){
+				<img class="hotel__inner__img" src="@hotel.Images?.Split("||").First()">
+			}
+		</div>
+
+	<div class="attractions__btn__res"><a class="attractions__btn" asp-controller="Main" asp-action="ListItems" asp-route-type="hotel">Показать все</a></div>
+	</div>
+
+@section scripts{
+	<script src="~/js/site.js"></script>
+}
