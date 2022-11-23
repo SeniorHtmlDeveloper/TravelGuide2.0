@@ -59,7 +59,7 @@ namespace TravelGuide.Controllers
             ViewData["PlaceType"] = placeTypes[type];
             places = BudgetFilter(places, budget);
             places = StarFilter(places, stars);
-            //places = SortPlace(places, sort);
+            places = SortPlace(places, sort);
 
             _filter.Rating.FilterValue = rating.ToString();
 
@@ -185,28 +185,20 @@ namespace TravelGuide.Controllers
             }
         }
 
-        //private List<Placemark> SortPlace(List<Placemark> places, string? sortValue)
-        //{
-        //    foreach(var item in _filter.Sort)
-        //    {
-        //        if(item.FilterValue == sortValue)
-        //        {
-        //            item.IsCheckedOrSelected = true;
-        //        }
-        //    }
-        //    switch (sortValue)
-        //    {
-        //        case "expensive":
-        //            return places.OrderByDescending(x => x.Price).ToList();
-        //        case "cheap":
-        //            return places.OrderBy(x => x.Price).ToList();
-        //        case "rating":
-        //            return places.OrderBy(x => x.Rating).ToList();
+        private List<Placemark> SortPlace(List<Placemark> places, string? sortValue)
+        {
+            switch (sortValue)
+            {
+                case "expensive":
+                    return places.OrderByDescending(x => x.Price).ToList();
+                case "cheap":
+                    return places.OrderBy(x => x.Price).ToList();
+                case "rating":
+                    return places.OrderBy(x => x.Rating).ToList();
+            }
+            return places;
 
-        //    }
-        //    return places;
-
-        //}
+        }
 
         private void TypesDictInitialize(Dictionary<string, string> dict)
         {
