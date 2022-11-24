@@ -75,7 +75,7 @@ function success(pos) {
     }
 
     circle = new mapgl.CircleMarker(map, {
-        coordinates: center,
+        coordinates: [pos.coords.longitude, pos.coords.latitude],
         radius: 14,
         color: '#0088ff',
         strokeWidth: 4,
