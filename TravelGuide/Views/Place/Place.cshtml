@@ -8,15 +8,10 @@
 	
 	<div class="container">
 		<div class="hotel__info">
-			<div class="hotel__about">
-				<div class="star__img">
-				@for(int i = 0; i < Model.Placemark.Stars; i++){
-					<img width="10px" src="~/img/full_star.png">
-				}
-				</div>
+			
 				<h1 class="hotel__name">@Model.Placemark.Name</h1>
 
-			<div class="slider">
+			@*<div class="slider">
 				<div class="slider__inner">
 					<button class="slider__btn" id="left__slide"><</button>
 					<div class="slider__content">
@@ -27,48 +22,78 @@
 					</div>
 					<button class="slider__btn" id="right__slide">></button>
 				</div>
-			</div>
-			<p class="hotel__desc">@Model.Placemark.Description</p>
+			</div>*@
+			<div class="hotel__about">
+				<div class="hotel__main__img"></div>
+				<p class="hotel__desc">@Model.Placemark.Description</p>
 			</div>
 
-			<div class="hotel__card">
-				<h3 class="hotel__rate">
-					<div class="num__text">Рейтинг:</div>
-				@Model.Placemark.Rating
-				</h3>
-				<div class="card__inner">
-					<div class="hotel__price">
-						<div class="price__info">начальная цена</div>
-					<div class="price">@Model.Placemark.Price</div>
-						<div class="price__info">за номер в сутки</div>
-						
-					</div>
-					<div class="hotel__number">
-						<div class="hotel__num">
-							<div class="num__text">Номер:</div>
-						@Model.Placemark.Number
-						</div>
-						<h3>
-							<div class="num__text">Расписание:</div>
-						@Model.Placemark.WorkSchedule
-						</h3>
-					</div>
+			<div class="hotel__nefor">
+				<div class="hotel__list__img">
+							@foreach (var imagePath in Model.Placemark.Images.Split("||"))
+							{
+								<img class="hotel__list__img__inner" src=@imagePath>
+							}
 				</div>
-			<div id="map" data-place-id=@Model.Placemark.PlacemarkId>
+
+
+
+				<div class="hotel__card">
+					
+					<div class="card__inner">
+						<div class="hotel__price">
+							<div class="price__info">начальная цена</div>
+						<div class="price">@Model.Placemark.Price</div>
+							<div class="price__info">за номер в сутки</div>
+						
+						</div>
+						<div class="hotel__number">
+							<div class="hotel__num">
+								<div class="num__text">Номер:</div>
+							@Model.Placemark.Number
+							</div>
+							<h3>
+								<div class="num__text">Расписание:</div>
+							@Model.Placemark.WorkSchedule
+							</h3>
+						</div>
+					</div>
+				<div id="map" data-place-id=@Model.Placemark.PlacemarkId></div>
 				</div>
 			</div>
 		</div>
 		
+		@*salamis start write code*@
+
+		<div class="get__comment">
+			<div class="get__comment__name">Отзывы</div>
+			<input class="get__comment__text"></input>
+			<input class="get__comment__mark"></input>
+			<btn class="get__comment__btn">Отправить отзыв</btn>
+		</div>
+
+		
+		@foreach(var review in Model.Reviews){
+			<div class="comment__list">
+				<div class="comment__list__inner">
+					<div class="comment__list__info">
+						<img class="comment__list__img"></img>
+						<h3 class="comment__list__name">@review.User.FullName</h3>
+					</div>
+					<h3 class="comment__list__date">@review.Date</h3>
+				</div>
+				<h3 class="comment__list__rating">@review.Rating</h3>
+				<h3 class="comment__list__text">@review.Text</h3>
+			</div>
+		}
+		
+
 	</div>
 
-	<div>
-		@foreach(var review in Model.Reviews){
-			<h3>@review.Rating</h3>
-			<h3>@review.User.FullName</h3>
-		<h3>@review.Date</h3>
-		<h3>@review.Text</h3>
-	}
-	</div>
+	
+
+
+	
 
 @section scripts{
 	<script src="~/js/site.js"></script>
