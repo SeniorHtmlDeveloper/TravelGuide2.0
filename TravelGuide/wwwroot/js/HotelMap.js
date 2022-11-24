@@ -67,7 +67,7 @@ const status = control.getContainer().querySelector('#status');
 let circle;
 
 function success(pos) {
-    const center = [pos.coords.longitude, pos.coords.latitude];
+    const center = [(pos.coords.longitude + longitude) / 2, (pos.coords.latitude + latitude) / 2];
 
     status.textContent = '';
     if (circle) {
@@ -114,7 +114,7 @@ control
 
 
 // кнопка выход
-const exit = new mapgl.Control(map, '<button>Exit</button>', {
+const exit = new mapgl.Control(map, '<button style="font-size: 17px; font-weight: 500; font-family: Arial;" background: transparent;>Закрыть</button>', {
     position: 'topRight',
    
 });
