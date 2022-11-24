@@ -512,8 +512,10 @@ input[type="range"]::-webkit-slider-runnable-track {
     width: 100vw;
     height: 100vh;
     backdrop-filter: blur(10px);
-    z-index: 1000;
+    z-index: 0;
     visibility: hidden;
+
+    
 }
 
 #map {
@@ -526,4 +528,19 @@ input[type="range"]::-webkit-slider-runnable-track {
     margin-top: -400px;
     z-index: 1001;
     visibility: hidden;
+}
+
+.button {
+    font-size: 25px;
+    
+    background: transparent;
+}
+
+#find-me {
+    font-size: 30px;
+}
+
+.map__icon {
+    width: 40px;
+    height: 40px;
 }

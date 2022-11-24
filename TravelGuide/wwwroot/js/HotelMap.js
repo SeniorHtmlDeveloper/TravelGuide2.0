@@ -5,6 +5,28 @@ let longitude = 0;
 let latitude = 0;
 
 
+// закрытие нажатием на экран
+
+blur.addEventListener("click", function (event) {
+
+    if (mapDiv.style.visibility == 'visible') {
+        mapDiv.style.visibility = 'hidden'
+        blur.style.visibility = 'hidden'
+    }
+
+});
+
+// закрытие клавишой ESC
+
+window.onkeydown = function (event) {
+    if (event.keyCode == 27) {
+        if (mapDiv.style.visibility == 'visible') {
+            mapDiv.style.visibility = 'hidden'
+            blur.style.visibility = 'hidden'
+        }
+    }
+};
+
 const map = new mapgl.Map('map', {
     center: [0, 0],
     zoom: 17,
@@ -20,10 +42,11 @@ const directions = new mapgl.Directions(map, {
 const controlContent = `
                 <div class="buttonRoot" id="find-me">
                     <button class="button">
-                        <svg
+                        <svg  
                             xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
+                            width="37"
+                            height="37"
+                            cursor="pointer"
                             viewBox="0 0 32 32"
                         >
                             <path
@@ -93,6 +116,7 @@ control
 // кнопка выход
 const exit = new mapgl.Control(map, '<button>Exit</button>', {
     position: 'topRight',
+   
 });
 
 exit
