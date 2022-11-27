@@ -74,7 +74,7 @@ menuBtn.addEventListener("click", function () {
 
     } else  {
        menu.classList.add("active")
-      menuBtn.style.left = '310px'
+      menuBtn.style.left = '410px'
        
   }
 })

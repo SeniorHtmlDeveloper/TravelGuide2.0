@@ -17,8 +17,23 @@
     <div class="main">
         <button class="menu__btn">Меню</button>
         <div class="menu">
-            <input type="checkbox" name="hotel_checkbox" value="hotel" id="hotel_checkbox"/>
-             <label for="hotel_checkbox">Отель</label>
+            <div class="menu__inner">
+                <div class="menu__search">
+                    <input type="text" value="" class="menu__input" placeholder="Поиск в TravelGuide"/>
+                    <button class="menu__search-btn">Click</button>
+                </div>
+                <div class="place__blocks">
+                    <div class="place__block">
+                        <div class="place__icon">
+                        </div>
+                        <div class="place__name">
+                        </div>
+                    </div>
+                </div>
+                <input type="checkbox" name="hotel_checkbox" value="hotel" id="hotel_checkbox" />
+                <label for="hotel_checkbox">Отель</label>
+            </div>
+            
         </div>
         <div id="map">
         </div>
