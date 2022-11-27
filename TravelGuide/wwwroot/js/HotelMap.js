@@ -86,7 +86,7 @@ function success(pos) {
     map.setCenter(center);
     map.setZoom(14);
     console.log([longitude, latitude], [pos.coords.longitude, pos.coords.latitude])
-    directions.carRoute({
+    directions.carRoute({   
         points: [
             [longitude, latitude],
             [pos.coords.longitude, pos.coords.latitude]
@@ -114,7 +114,7 @@ control
 
 
 // кнопка выход
-const exit = new mapgl.Control(map, '<button style="font-size: 17px; font-weight: 500; font-family: Arial;" background: transparent;>Закрыть</button>', {
+const exit = new mapgl.Control(map, '<button style="font-size: 20px; font-weight: 600; font-family: Arial; background: transparent; cursor: pointer; " >X</button>', {
     position: 'topRight',
    
 });
