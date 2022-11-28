@@ -20,11 +20,12 @@ namespace TravelGuide.Controllers
         {
             db = context;
             _filter = filter;
-            TypesDictInitialize(placeTypes);
             this.logger = logger;
-        }
+			TypesDictInitialize(placeTypes);
+            UpdateRating();
+		}
 
-        [HttpGet]
+		[HttpGet]
         public IActionResult ListPlaces(string type, int page = 1)
         {
             ViewData["PlaceType"] = placeTypes[type];
@@ -209,7 +210,23 @@ namespace TravelGuide.Controllers
             dict.Add("catering", "Общепит");
         }
 
-        
+        private void UpdateRating()
+        {
+            var places = db.Placemarks.ToList();
+
+            foreach (var place in places)
+            {
+                var reviews = db.Reviews.Where(r => r.PlacemarkId == place.PlacemarkId).ToList();
+                double rating = 0d;
+                foreach (var review in reviews)
+                {
+                    rating += review.Rating;
+                }
+                rating = rating / reviews.Count();
+                place.Rating = Math.Round(rating, 2);
+            }
+            db.Placemarks.UpdateRange(places);
+        }
 
     }
 }

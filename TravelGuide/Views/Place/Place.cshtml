@@ -65,19 +65,30 @@
 		
 		@*salamis start write code*@
 
-		<div class="get__comment">
-			<div class="get__comment__name">Отзывы</div>
-			<input class="get__comment__text"></input>
-			<input class="get__comment__mark"></input>
-			<btn class="get__comment__btn">Отправить отзыв</btn>
-		</div>
-
 		
+
+	@if (User.Identity.IsAuthenticated)
+	{
+		<div class="get__comment">
+			<form method="post">
+				<div class="get__comment__name">Отзывы</div>
+				<input name="text" class="get__comment__text">
+				<input name="rating" type="range" min="0" max="10" value="0" class="get__comment__mark">
+				<input name="placeId" type="hidden" value=@Model.Placemark.PlacemarkId />
+				<input type="submit" class="get__comment__btn" value="Оставить отзыв" />
+			</form>
+		</div>
+	}
+	else
+	{
+		<a asp-controller="Account" asp-action="Login">Пожалуйста войдите чтобы оставить отзыв</a>
+	}
+
 		@foreach(var review in Model.Reviews){
 			<div class="comment__list">
 				<div class="comment__list__inner">
 					<div class="comment__list__info">
-						<img class="comment__list__img"></img>
+						<img class="comment__list__img" />
 						<h3 class="comment__list__name">@review.User.FullName</h3>
 					</div>
 					<h3 class="comment__list__date">@review.Date</h3>
