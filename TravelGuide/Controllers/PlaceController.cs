@@ -223,7 +223,7 @@ namespace TravelGuide.Controllers
                     rating += review.Rating;
                 }
                 rating = rating / reviews.Count();
-                place.Rating = Math.Round(rating, 2);
+                place.Rating = Math.Round(rating, 1);
             }
             db.Placemarks.UpdateRange(places);
         }
