@@ -26,15 +26,37 @@
 
 
 
-.slider__btn {
+.slider__btn__left {
     width: 50px;
     height: 80px;
-    background-color: #2e2e2e;
+    left: 0;
+    top: 450px;
+    position: absolute;
     font-size: 60px;
     color: #fff;
-    margin-top: 160px;
-    
+    z-index: 1000;
+    padding-bottom: 10px;
+    background-color: transparent;
 }
+
+
+
+
+.slider__btn__right {
+    width: 50px;
+    height: 80px;
+    right: 0;
+    top: 450px;
+    position: absolute;
+    font-size: 60px;
+    color: #fff;
+    padding-bottom: 10px;
+    background-color: transparent;
+}
+
+
+
+
 
 
 .slider__content {
