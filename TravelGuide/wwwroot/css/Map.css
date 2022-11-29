@@ -82,6 +82,7 @@
     align-items: center;
     border-bottom: 1px solid #000;
     padding: 0 15px;
+    margin-bottom: 20px;
 }
 
 .menu__input {
@@ -94,6 +95,7 @@
     font-size: 19px;
     font-weight: 600;
     padding: 0 10px;
+    margin-right: 5px;
 
 }
 
@@ -130,12 +132,24 @@
 }
 
 .place__block {
-    width: 350px;
-    height: 50px;
+    width: 367px;
+    height: 60px;
     border: 1px solid silver;
     padding: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 50px;
 }
 
+.place__name {
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+    margin-right: 240px;
+}
 
 #map {
     width: 100vw;

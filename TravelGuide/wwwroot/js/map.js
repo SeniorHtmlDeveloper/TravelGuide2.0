@@ -80,16 +80,33 @@ menuBtn.addEventListener("click", function () {
 })
 
 //MENU
-const hotelCheckbox = document.getElementById("hotel_checkbox");
-hotelCheckbox.addEventListener("click", () => {
-    let type = hotelCheckbox.value;
-    for (let key in places) {
-        if (key != type) {
-            console.log(places[key])
-            for (let i = 0; i < places[key].length; i++) {
-                console.log(places[key][i])
-                places[key][i].destroy();
+const placesBlock = document.querySelectorAll(".place__block");
+
+placesBlock.forEach(item => {
+    item.addEventListener("click", () => {
+        let type = item.getAttribute("data-type");
+        for (let key in places) {
+            if (key != type) {
+                console.log(places[key])
+                for (let i = 0; i < places[key].length; i++) {
+                   
+                    places[key][i].destroy();
+                }
             }
         }
-    }
+    });
+    
 });
+
+//hotelCheckbox.addEventListener("click", () => {
+//    let type = hotelCheckbox.value;
+//    for (let key in places) {
+//        if (key != type) {
+//            console.log(places[key])
+//            for (let i = 0; i < places[key].length; i++) {
+//                console.log(places[key][i])
+//                places[key][i].destroy();
+//            }
+//        }
+//    }
+//});
