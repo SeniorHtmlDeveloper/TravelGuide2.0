@@ -12,12 +12,6 @@ function AddAllMarkers() {
         .then(response => response.json())
         .then(placemarks => {
             placemarks.forEach(place => {
-                const map = new mapgl.Map('map', {
-                    center: [47.504771, 42.98283],
-                    zoom: 13,
-                    key: "d31240ac-6937-4994-9e2e-a9a3678b6807"
-                });
-
                 places[place.Type].push(
                     new mapgl.CircleMarker(map, {
                         coordinates: [place.Longitude, place.Latitude],
@@ -27,13 +21,18 @@ function AddAllMarkers() {
                         strokeColor: '#ffffff',
                         stroke2Width: 6,
                         stroke2Color: GetPlaceColor(place.Type) + "55",
+                        name: place.Name,
                     })
                 );
             });
         });
 }
 
-
+const map = new mapgl.Map('map', {
+    center: [47.504771, 42.98283],
+    zoom: 13,
+    key: "d31240ac-6937-4994-9e2e-a9a3678b6807"
+});
         
 function GetPlaceColor(type) {
     switch (type) {
@@ -79,38 +78,63 @@ menuBtn.addEventListener("click", function () {
 
 //MENU
 const placesBlock = document.querySelectorAll(".place__block");
+const 
 
 placesBlock.forEach(item => {
     item.addEventListener("click", () => {
-        let type = item.getAttribute("data-type");
-        for (let key in places) {
-            if (key != type) {
-                console.log(places[key])
-                for (let i = 0; i < places[key].length; i++) {
-                   
-                    places[key][i].destroy();
+        if (!item.classList.contains("active__block")) {
+
+            item.classList.add("active__block");
+            let type = item.getAttribute("data-type");
+            for (let key in places) {
+                if (key != type) {
+                    console.log(places[key])
+                    for (let i = 0; i < places[key].length; i++) {
+
+                        places[key][i].destroy();
+                    }
                 }
             }
+        } else {
+            for (let key in places) {
+                for (let i = 0; i < places[key].length; i++) {
+                    places[key][i].destroy();
+                }
+                places[key] = [];
+            }
+            AddAllMarkers();
+            item.classList.remove("active__block")
         }
+        
+        
     });
     
 });
 
-// View All
-const view = document.querySelector(".view__all");
-view.addEventListener("click", () => {
-    for (let key in places) {
-        for (let i = 0; i < places[key].length; i++) {
-            places[key][i].destroy();
-        }
-        places[key] = [];
-    }
-    AddAllMarkers();
-});
-
+const myInput = document.querySelector(".menu__input");
 const search = document.getElementById("search");
 search.addEventListener("click", () => {
+    for (let key in places) {
 
+        for (let i = 0; i < places[key].length; i++) {
+            
+            if (myInput.value == places[key][i].options.name) {
+                for (let k = 0; k < places[key].length; k++) {
+                    if (places[key][k].options.name != myInput.value) {
+                        places[key][k].destroy();
+                    }
+                        
+                }
+                break     
+            } else {
+                console.log(false)
+                break
+            } 
+        }
+        break
+        
+       
+    }
 });
 
 //hotelCheckbox.addEventListener("click", () => {
