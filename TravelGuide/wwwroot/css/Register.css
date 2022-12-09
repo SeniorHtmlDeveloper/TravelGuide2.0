@@ -1,0 +1,226 @@
+﻿﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    width: 100%;
+    padding-top: 1px;
+    background: #fff;
+    font-family: 'Ramabhadra', sans-serif;
+    font-weight: 700;
+}
+
+
+/*      container       */
+
+/* все что касается container */
+
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+
+
+.container__title {
+    text-align: center;
+    color: #a08afb;
+    width: 400px;
+    padding: 20px 0;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    border-radius: 50px;
+}
+
+
+
+/*          reg       */
+
+/* все что касается reg */
+
+
+
+.reg {
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 1px;
+    border: 2px solid #a08afb;
+    border-radius: 50px;
+    /* box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); */
+    transition: all 0.5s ease;
+}
+
+
+
+    .reg:hover {
+        box-shadow: 0px 0px 10px 0px #a08afb;
+    }
+
+
+
+.reg__setting {
+    margin-top: 40px;
+}
+
+
+
+
+.reg__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+
+
+/* это лабел */
+
+
+
+.form__lab {
+    margin-bottom: 15px;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    color: #a08afb;
+    transition: all 0.5s ease;
+}
+
+
+.reg__inner:hover > .form__lab {
+    top: -15px;
+    transition: all 0.5s ease;
+}
+
+
+
+.form__lab__active {
+    top: -15px;
+}
+
+
+
+/* это инпут  */
+
+
+
+.form__field {
+    width: 500px;
+    margin: 0 auto;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #a08afb;
+    outline: 0;
+    color: #a08afb;
+    background: #fff;
+}
+
+
+
+    .form__field:active {
+        border: none;
+    }
+
+    
+
+/* кнопка регистрации */
+
+
+
+.reg__btn {
+    width: 200px;
+    padding: 14px 15px;
+    background-color: #a08afb;
+    color: #fff;
+    border: 2px solid #a08afb;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    border-radius: 30px;
+    font-size: 22px;
+    transition: all 0.5s ease;
+}
+
+
+    .reg__btn:hover {
+        color: #a08afb;
+        background-color: #fff;
+    }
+
+
+.forgot__pass {
+    color: #a08afb;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+    width: 180px;
+    transition: all 0.5s ease;
+}
+
+
+    .forgot__pass:hover {
+        color: #fbbb43;
+    }
+
+
+.recover__pass {
+    color: #fbbb43;
+    margin: 0 auto;
+    width: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+    transition: all 0.5s ease;
+}
+
+
+
+    .recover__pass:hover {
+        color: #a08afb;
+        text-decoration: underline;
+        text-underline-offset: 8px;
+    }
+
+
+
+.sign-in {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.sign-in__link {
+    display: inline-block;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    margin-left: 9px;
+    color: #a08afb;
+    cursor: pointer;
+}
+
+    .sign-in__link:hover {
+        font-size: 15px;
+    }
+
+
+/*VALIDATION*/
+span{
+    text-align: left;
+    font-size: 14px;
+    color: red;
+    margin-left: 48px;
+}

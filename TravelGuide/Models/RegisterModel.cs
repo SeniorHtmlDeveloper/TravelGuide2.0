@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 
 namespace TravelGuide.Models
 {
@@ -19,6 +20,9 @@ namespace TravelGuide.Models
 
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Пароль введен неверно")]
+        [Required(ErrorMessage = "Пароль введен неверно")]
         public string ConfirmPassword { get; set; }
+
+        public ModelStateDictionary RegisterState { get; set; }
     }
 }

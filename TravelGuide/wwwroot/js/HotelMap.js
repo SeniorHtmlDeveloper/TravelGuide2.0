@@ -130,6 +130,11 @@ exit
 
 
 // на карте
+let marker = new mapgl.Marker(map, {
+    coordinates: [0, 0],
+
+});
+
 mapBtns.forEach(item => {
     item.addEventListener("click", () => {
         longitude = parseFloat(item.getAttribute("data-placemark-longitude").replace(",", "."));
@@ -142,8 +147,8 @@ mapBtns.forEach(item => {
 
         map.setCenter([longitude, latitude]);
         map.setZoom(17);
-
-        let marker = new mapgl.Marker(map, {
+        marker.destroy();
+        marker = new mapgl.Marker(map, {
             coordinates: [longitude, latitude],
         
         });

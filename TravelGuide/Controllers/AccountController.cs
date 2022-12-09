@@ -50,16 +50,12 @@ namespace TravelGuide.Controllers
             return View();
         }
 
-        [Authorize]
-        public IActionResult Test()
-        {
-            return Content(User.Identity.Name);
-        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
+            
             if (ModelState.IsValid)
             {
                 User? user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
@@ -76,6 +72,7 @@ namespace TravelGuide.Controllers
                 else
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
+            model.RegisterState = ModelState;
             return View(model);
         }
     
