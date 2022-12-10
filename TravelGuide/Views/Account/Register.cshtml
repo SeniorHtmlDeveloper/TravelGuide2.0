@@ -19,8 +19,7 @@
             <div asp-validation-summary="ModelOnly"></div>
             <h2 class="container__title">Регистрация</h2>
             <div class="reg__setting">
-                <div class="reg__inner textbox" data-index="0"
-                @if(Model.RegisterState["LastName"]?.ValidationState == ModelValidationState.Invalid){<text>style="color:red;"</text>}>
+                <div class="reg__inner textbox" data-index="0">
                 
                     <label class="form__lab" asp-for="LastName">Фамилия</label><br />
                     <input class="form__field" type="text" asp-for="LastName" />
