@@ -5,7 +5,7 @@
 }
 
 .container {
-    padding-top: 1px;
+    padding: 1px;
     width: 1170px;
     margin: 0 auto;
     
@@ -211,6 +211,7 @@
     color: #fff;
     text-align: center;
     border-radius: 6px;
+
 }
 
 
@@ -221,7 +222,7 @@
     margin-left: 90px;
     height: 70px;
     position: relative;
-    
+    cursor: pointer;
 }
 
 
@@ -238,6 +239,7 @@
     width: 170px;
     margin-left: 50px;
     position: relative;
+    cursor: pointer;
 }
 
 
@@ -258,17 +260,48 @@
     border-radius: 10px 10px 0px 0px;
     position: absolute;
     bottom: 0;
+    display: none;
+    
 }
 
+
+
+
+.curse__active{
+    display: block;
+    
+}
 
 
 
 
 
 .hotel__about {
-    margin-top: 40px;
+    margin-top: 0px;
+    position: absolute;
+    opacity: 0;
     
+    margin-bottom: 70px;
+    transition: all ease 0.4s;
 }
+
+
+
+
+.active {
+    
+    position: static;
+}
+
+
+
+.animation {
+    transition: all ease 0.4s;
+    opacity: 1;
+    margin-top: 40px;
+}
+
+
 
 
 
@@ -312,11 +345,29 @@
 }
 
 
-.hotel__comm{
-    margin-top: 70px;
+.hotel__comm {
+    margin-top: 140px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    opacity: 0;
+    position: absolute;
+    display: none;
+    transition: all ease 0.4s;
+}
 
+
+
+.active__comm {
+    position: static;
+    display: flex;
+}
+
+
+
+.animation__comm {
+    opacity: 1;
+    margin-top: 70px;
+    
 }
 
 
@@ -435,7 +486,7 @@
 
 .hotel__comm__right{
     width: 560px;
-
+    
 }
 
 
@@ -451,8 +502,10 @@
 
 
 .comment__list {
-    padding: 60px;
-   
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+
     width: 100%;
     margin-bottom: 30px;
     display: flex;
