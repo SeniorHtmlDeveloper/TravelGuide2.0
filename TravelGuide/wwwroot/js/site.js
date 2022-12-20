@@ -80,4 +80,9 @@ function EnabledSliderButtons() {
 }
 
 
+const map = new mapgl.Map('map', {
+	center: [47.504771, 42.98283],
+	zoom: 13,
+	key: "d31240ac-6937-4994-9e2e-a9a3678b6807"
+});
 
