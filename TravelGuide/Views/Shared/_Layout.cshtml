@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TravelGuide</title>
     <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
@@ -21,6 +22,11 @@
                     <a class="nav__link" asp-controller="Main" asp-action="Map">Карта</a>
                     <a class="nav__link" asp-controller="Account" asp-action="Login">Вход</a>
                 </nav>
+                <div class="burger">
+                    <div class="burger__inner"></div>
+                    <div class="burger__inner"></div>
+                    <div class="burger__inner"></div>
+                </div>
             </div>
             
         </div>

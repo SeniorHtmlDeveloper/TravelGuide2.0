@@ -83,6 +83,7 @@
     display: flex;
     justify-content: center;
     width: 1170px; /* пока нет лайаута */
+    max-width: 95%;
     margin: 0 auto;
     margin-top: 150px;
     
@@ -145,7 +146,7 @@
 
 .descp__inner {
     width: 1170px;
-    
+    max-width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -179,12 +180,12 @@
 
 
 
-.attractions{
+.attractions {
     margin: 0 auto;
     margin-top: 400px;
     width: 1170px;
+    max-width: 95%;
     margin-bottom: 200px;
-    
 }
 
 
@@ -296,11 +297,12 @@
 
 
 
-.hotel{
+.hotel {
     margin: 0 auto;
     margin-top: 150px;
     margin-bottom: 150px;
     width: 1170px;
+    max-width: 95%;
     text-align: center;
 }
 
