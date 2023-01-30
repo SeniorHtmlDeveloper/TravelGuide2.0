@@ -76,6 +76,56 @@
 
 
 
+/*Адаптация для slider*/
+
+
+
+
+@media (max-width: 786px) {
+    .slider__content{
+        height: 500px;
+    }
+
+
+    .slider__btn__left {
+        top: 250px;
+        font-size: 50px;
+    }
+
+
+    .slider__btn__right {
+        top: 250px;
+        font-size: 50px;
+    }
+
+
+}
+
+
+
+@media (max-width: 519px) {
+    .slider__content {
+        height: 350px;
+    }
+
+
+    .slider__btn__left {
+        top: 200px;
+        
+    }
+
+
+    .slider__btn__right {
+        top: 200px;
+        
+    }
+}
+
+
+
+
+
+
 /*      intro       */
 
 
@@ -92,7 +142,7 @@
 
 .intro__inner {
     width: 50%;
-    margin-right: 20px;
+    
 }
 
 
@@ -126,8 +176,106 @@
     height: 530px;
     width: 530px;
     border-radius: 10px;
-    
+    margin: 0 auto;
 }
+
+
+
+
+/*Адаптация для intro*/
+
+
+
+@media(max-width: 1099px) {
+    .intro {
+        flex-wrap: wrap;
+    }
+
+
+    .intro__inner{
+        margin-bottom: 70px;
+        width: 60%;
+        max-width: 95%;
+    }
+
+
+    .intro__inner__main{
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 30px
+    }
+
+
+
+    .intro__inner__post {
+        font-size: 18px;
+        text-align: justify;
+        line-height: 162%;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+
+    .intro__img {
+        width: 70%;
+        max-width: 95%;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+
+    .intro__img__inner {
+        max-width: 100%;
+        
+    }
+}
+
+
+
+
+@media (max-width: 849px){
+    .intro__inner{
+        width: 90%;
+    }
+}
+
+
+
+@media (max-width: 699px){
+    .intro__img__inner{
+        height: 400px;
+    }
+}
+
+
+@media (max-width: 549px) {
+    .intro__img__inner {
+        height: 330px;
+    }
+}
+
+
+
+@media (max-width: 442px) {
+    .intro__img__inner {
+        height: 260px;
+    }
+
+    .intro__inner__main{
+        font-size: 40px;
+    }
+    
+    .intro__inner__post{
+        font-size: 16px;
+    }
+}
+
+
+
+
+
 
 
 /*      descp       */
@@ -145,21 +293,20 @@
 
 
 .descp__inner {
-    width: 1170px;
+    
     max-width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     text-align: center;
     margin-top: 20px;
-    color: #fff
+    color: #fff;
 }
 
 
 
 .descp__inner__block {
-    margin-left: 60px;
-    margin-right: 60px;
+    width: 30%;
 }
 
 
@@ -172,6 +319,102 @@
 
 .descp__inner__block__txt{
     font-size: 27px;
+}
+
+
+
+
+
+/*  Адаптация для descp     */
+
+
+@media(max-width: 1129px){
+    .descp__inner__block__count {
+        font-size: 50px;
+    }
+
+
+    .descp__inner__block__txt {
+        font-size: 25px;
+    }
+
+}
+
+
+
+@media(max-width: 968px) {
+    .descp__inner__block__count {
+        font-size: 45px;
+    }
+
+
+    .descp__inner__block__txt {
+        font-size: 22px;
+    }
+}
+
+
+
+
+
+@media(max-width: 776px) {
+    .descp__inner__block__count {
+        font-size: 42px;
+    }
+
+
+    .descp__inner__block__txt {
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+@media(max-width: 710px) {
+    .descp__inner__block__count {
+        font-size: 42px;
+    }
+
+
+    .descp__inner__block__txt {
+        font-size: 18px;
+    }
+}
+
+
+
+
+@media(max-width: 640px) {
+
+    .descp {
+        
+        height: 130px;
+        
+    }
+
+    .descp__inner__block {
+        width: 33%;
+    }
+
+
+
+    .descp__inner__block__count {
+        font-size: 38px;
+    }
+
+
+    .descp__inner__block__txt {
+        font-size: 16px;
+    }
+}
+
+
+@media(max-width: 558px) {
+    .descp{
+        display: none;
+    }
 }
 
 
@@ -240,7 +483,7 @@
 .card__mark{
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-top: 20px;
 }
 
@@ -292,6 +535,58 @@
 
 
 
+
+/*  Адаптация для attractions     */
+
+
+
+@media (max-width: 1025px){
+    .card__line {
+        flex-wrap: wrap;
+    }
+
+
+
+    .card {
+        width: 40%;
+        margin-bottom: 25px;
+    }
+}
+
+
+
+
+@media (max-width: 669px) {
+    .card__line {
+        flex-wrap: wrap;
+    }
+
+
+
+    .card {
+        width: 70%;
+        margin-bottom: 25px;
+    }
+}
+
+
+
+@media (max-width: 425px) {
+    .card__line {
+        flex-wrap: wrap;
+    }
+
+
+
+    .card {
+        width: 80%;
+        margin-bottom: 25px;
+    }
+}
+
+
+
+
 /*      hotel       */
 
 
@@ -333,4 +628,30 @@
     width: 30%;
     height: 300px;
     margin: 5px;
+}
+
+
+
+
+/*  Адаптация для hotel  */
+
+
+
+@media (max-width: 695px) {
+    .hotel__inner__img{
+        width: 40%;
+    }
+}
+
+@media (max-width: 590px) {
+    .hotel__inner__img{
+        width: 48%;
+    }
+}
+
+
+@media (max-width: 525px) {
+    .hotel__inner__img {
+        width: 70%;
+    }
 }
