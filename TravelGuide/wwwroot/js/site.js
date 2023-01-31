@@ -116,3 +116,19 @@ comm.addEventListener('click', function () {
 	document.querySelector('.hotel__comm').classList.add('active__comm');
 
 });
+
+
+
+
+/*		burger		*/
+
+
+let burger = document.querySelector('.burger');
+
+burger.addEventListener('click', function () {
+	if (document.querySelector('.burger__block').classList.contains('burger__block__active')) {
+		document.querySelector('.burger__block').classList.remove('burger__block__active');
+	} else {
+		document.querySelector('.burger__block').classList.add('burger__block__active')
+    }
+})

@@ -12,6 +12,7 @@
 
 body {
     background-color: #f7f7f7;
+    
 }
 
 
@@ -23,6 +24,7 @@ body {
     width: 1170px;
     max-width: 100%;
     margin: 0 auto;
+    padding: 1px;
 }
 
 
