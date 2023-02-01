@@ -254,3 +254,59 @@ body {
     }
     
 }
+
+
+
+/*          burger          */
+
+
+.burger__block {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    height: 0px;
+    flex-direction: column;
+    background-color: #383950;
+    z-index: 2000;
+    transition: all ease 0.4s;
+    
+}
+
+
+
+.burger__block__active {
+    height: 100%;
+}
+
+
+.navs {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+
+
+.nav__links {
+    color: #bfbfc7;
+    text-decoration: none;
+    margin: 0px auto;
+    
+    font-size: 0px;
+}
+
+
+.nav__links__active {
+    margin: 10px auto;
+    font-size: 21px;
+    transition: all ease 0.45s;
+}
+
+
+
+.nav__links:hover {
+     color: #f9f9fb;
+     text-decoration: underline;
+}

@@ -16,6 +16,97 @@
         </div>
     
     <form method="post">
+        <div class="adaptive__settings">
+            <button class="btn__adapt" type="submit">Показать фильтры</button>
+
+            <div class="catalog__settingays">
+
+
+                <div class="combobox">
+                    <div class="combobox__inner">
+                        
+                            <div class="strelochka"><div class="combobox__title">Упорядочить</div></div>
+                            <div class="combobox__list">
+                                <div class="combobox__list__item" data-value="expensive">Сначала дорогие</div>
+                                <div class="combobox__list__item" data-value="cheap">Сначала дешевые</div>
+                                <div class="combobox__list__item" data-value="rating">По рейтингу</div>
+                            </div>
+                            <input id="sort" type=@Model.CurrentFilter.Sort.FilterType name=@Model.CurrentFilter.Sort.FilterName value=""  />
+                        
+                    </div>
+                </div>
+                <div class="cross__line__bottom"></div>
+
+                
+                <div class="budget">
+                    
+                    <p class="budget__title">Бюджет</p>
+                    @for (int i = 0; i < Model.CurrentFilter.Budget.Count; i++)
+                    {
+
+                        <label class="path__checkbox" for=@(Model.CurrentFilter.Budget[i].FilterElementId + (i+1).ToString())>@Model.CurrentFilter.Budget[i].FilterText
+                            <input class="checkbox"
+                           type=@Model.CurrentFilter.Budget[i].FilterType
+                           name=@Model.CurrentFilter.Budget[i].FilterName
+                           value=@Model.CurrentFilter.Budget[i].FilterValue
+                           id=@(Model.CurrentFilter.Budget[i].FilterElementId + (i+1).ToString())
+                           @if(Model.CurrentFilter.Budget[i].IsCheckedOrSelected){<text>checked</text>} />
+                        <span class="checkbox__restyle"></span>
+                        </label>
+                        
+                    }
+                    
+                </div>
+                <div class="cross__line__bottom"></div>
+
+                
+                <div class="star__list">
+                    <div class="cross__line"></div>
+                    <p class="star__list__title">Количество звезд</p>
+                    @for (int i = 0; i < Model.CurrentFilter.Stars.Count; i++)
+                    {
+
+                        <label class="path__checkbox" for=@(Model.CurrentFilter.Stars[i].FilterElementId + (i+1).ToString())>
+                            @for (int j = 0; j < int.Parse(Model.CurrentFilter.Stars[i].FilterText); j++){
+                                <img class="card__about__img" height="13px" width="13px" src="~/img/full_star.png">
+                            }
+                            
+                            <input class="checkbox"
+                           type=@Model.CurrentFilter.Stars[i].FilterType
+                           name=@Model.CurrentFilter.Stars[i].FilterName
+                           value=@Model.CurrentFilter.Stars[i].FilterValue
+                           id=@(Model.CurrentFilter.Stars[i].FilterElementId + (i+1).ToString())
+                           @if(Model.CurrentFilter.Stars[i].IsCheckedOrSelected){<text>checked</text>} />
+                        <span class="checkbox__restyle"></span>
+                        </label>
+                        
+                    }
+                    
+                </div>
+                <div class="cross__line__bottom"></div>
+
+                
+                <div class="rating">
+                    
+                    <label class="rating__title" for="rating">Рейтинг</label>
+                    <input style="margin-top: 10px; margin-bottom: 10px;" oninput="handleInputChange()" id="rating" type="range" name="rating" id="rating" min="0" max="10" value=@Model.CurrentFilter.Rating.FilterValue />
+                    
+                </div>
+                <div class="cross__line__bottom"></div>
+
+                <div class="catalog__settings__btn">
+                    <button class="btn__special" type="submit">Применить<br />фильтры</button>
+                    <a class="btn__special" asp-controller="Place" asp-action="ResetFilters" asp-route-type=@Model.CurrentPlaceType>Сбросить фильтры</a>
+                </div>
+               
+
+
+            </div>
+
+        </div>
+
+        @*      без адаптации       *@
+
         <div class="catalog">
             <div class="catalog__settings">
 

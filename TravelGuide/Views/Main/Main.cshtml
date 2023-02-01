@@ -1,18 +1,6 @@
 ﻿@model MainViewModel
 @section Styles{<link rel="stylesheet" href="~/css/Main.css">}
-	<div class="burger__block">
-		<div class="navs">
-			<a class="nav__links" asp-controller="Place" asp-action="ListPlaces" asp-route-type="hotel">Отели</a>
-			<a class="nav__links" asp-controller="Place" asp-action="ListPlaces" asp-route-type="attraction">Достопримечательности</a>
-			<a class="nav__links" asp-controller="Place" asp-action="ListPlaces" asp-route-type="entertainment">Развлечения</a>
-			<a class="nav__links" asp-controller="Place" asp-action="ListPlaces" asp-route-type="business">Бизнес</a>
-			<a class="nav__links" asp-controller="Place" asp-action="ListPlaces" asp-route-type="catering">Общепит</a>
-			<a class="nav__links" asp-controller="Main" asp-action="Map">Карта</a>
-			<a class="nav__links" asp-controller="Account" asp-action="Login">Вход</a>
-		</div>
-    </div>	
-
-
+	
 	<div class="slider">
 		<div class="slider__inner">
 			<button class="slider__btn__left" id="left__slide"><</button>
@@ -83,6 +71,3 @@
 	<div class="attractions__btn__res"><a class="attractions__btn" asp-controller="Main" asp-action="ListItems" asp-route-type="hotel">Показать все</a></div>
 	</div>
 
-@section scripts{
-	<script src="~/js/site.js"></script>
-}

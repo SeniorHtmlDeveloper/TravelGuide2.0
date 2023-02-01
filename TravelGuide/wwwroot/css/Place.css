@@ -4,11 +4,11 @@
     border: 0;
 }
 
-.container {
+.containzer {
     padding: 1px;
     width: 1170px;
     margin: 0 auto;
-    
+    max-width: 90%;
 }
 
 
@@ -201,6 +201,75 @@
 
 
 
+@media (max-width: 1158px) {
+    .hotel__info{
+        flex-direction: column;
+        
+    }
+
+
+    .slider {
+        max-width: 100%;
+    }
+
+
+    .card {
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+}
+
+
+
+
+@media(max-width: 599px) {
+    .slider{
+        height: 400px;
+    }
+
+    .slider__img {
+        height: 350px;
+        border-radius: 10px;
+    }
+}
+
+
+
+@media(max-width: 429px) {
+    .slider {
+        height: 350px;
+    }
+
+    .slider__img {
+        height: 300px;
+        border-radius: 10px;
+    }
+}
+
+
+
+@media(max-width: 429px) {
+    .card{
+        
+    }
+
+    .card__inner {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+}
+
+
+@media(max-width: 400px) {
+    .card {
+    }
+
+    .card__inner {
+        width: 310px;
+    }
+}
+
 
 
 .choose {
@@ -276,6 +345,32 @@
 
 
 
+@media (max-width: 609px) {
+    .choose{
+        justify-content: center;
+    }
+
+
+    .choose__desc {
+        width: 40%;
+        margin: 0 auto;
+        height: 70px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .choose__comm {
+        width: 40%;
+        margin: 0 auto;
+        position: relative;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
 .hotel__about {
     margin-top: 0px;
     position: absolute;
@@ -326,14 +421,11 @@
 
 .hotel__desc {
     line-height: 25px;
-    width: 500px;
+    width: 400px;
     font-size: 16px;
     font-weight: 500;
+    
 }
-
-
-
-
 
 
 
@@ -343,6 +435,79 @@
     height: 310px;
        
 }
+
+
+
+@media (max-width: 1209px) {
+    .hotel__about__txt {
+        text-align: center;
+    }
+
+
+    .hotel__about__info {
+        flex-direction: column;
+    }
+
+    .hotel__desc {
+        margin: 20px auto;
+        margin-bottom: 50px;
+        text-align: justify;
+    }
+
+
+
+    #map {
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width: 619px) {
+
+    .hotel__desc {
+        width: 400px;
+    }
+
+
+
+    #map {
+        width: 400px;
+    }
+}
+
+
+
+
+@media (max-width: 445px) {
+
+    .hotel__desc {
+        width: 350px;
+    }
+
+
+
+    #map {
+        width: 350px;
+    }
+}
+
+
+
+@media (max-width: 405px) {
+
+    .hotel__desc {
+        width: 300px;
+    }
+
+
+
+    #map {
+        width: 300px;
+    }
+}
+
+
+
 
 
 .hotel__comm {
