@@ -74,7 +74,7 @@
 				<div class="hotel__about__txt">Описание</div>
 				<div class="hotel__about__info">
 					<p class="hotel__desc">@Model.Placemark.Description</p>
-					<div id="map" data-place-id=@Model.Placemark.PlacemarkId></div>
+					<div id="map" data-place-longitude=@Model.Placemark.Longitude data-place-latitude=@Model.Placemark.Latitude></div>
 				</div>
 			</div>	
 			
@@ -96,8 +96,9 @@
 							<form method="post">
 								<div class="get__comment__name">Отзывы</div>
 								<input name="text" class="get__comment__text">
-								<input name="rating" type="range" min="0" max="10" value="0" class="get__comment__mark">
+								<input oninput="result.value=ParseInt(rating.value)" name="rating" type="range" min="0" max="10" value="0" class="get__comment__mark">
 								<input name="placeId" type="hidden" value=@Model.Placemark.PlacemarkId />
+								<output name="result">0</output><br/>
 								<input type="submit" class="get__comment__btn" value="Оставить отзыв" />
 							</form>
 						</div>
@@ -136,15 +137,13 @@
 
 
 
-	<!-- НИЖНЕЕ ПОДКЛЮЧЕНИЕ MAPGL НЕ РАБОТАЕТ-->
-	<script src="https://mapgl.2gis.com/api/js/v1"></script>
+
 	</div>
 
 	
 
 
 @section scripts{
-	<script src="~/js/site.js"></script>
 	<script src="https://mapgl.2gis.com/api/js/v1"></script>
-
+	<script src="~/js/site.js"></script>
 }

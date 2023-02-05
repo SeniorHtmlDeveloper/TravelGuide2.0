@@ -19,14 +19,14 @@
             <h2 class="container__title">Авторизация</h2>
 
             <div asp-validation-summary="ModelOnly"></div>
-            <div class="sign-u__setting">
-                <div class="sign-up__inner" id="reg__inner__1">
+            <div class="sign-u__setting textbox">
+                <div class="sign-up__inner" data-index="1">
                     <label class="form__lab" asp-for="Email">Введите Email</label>
                     <input class="form__field" type="text" asp-for="Email" readonly
                            onfocus="this.removeAttribute('readonly')" />
                     <span asp-validation-for="Email" />
                 </div>
-                <div class="sign-up__inner" id="reg__inner__2">
+                <div class="sign-up__inner textbox" data-index="2">
                     <label class="form__lab" asp-for="Password">Введите пароль</label>
                     <input class="form__field" asp-for="Password" readonly
                            onfocus="this.removeAttribute('readonly')" />

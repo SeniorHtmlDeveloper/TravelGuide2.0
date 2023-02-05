@@ -213,3 +213,11 @@ body {
     height: 30px;
     width: 30px;
 }
+
+/*VALIDATION*/
+span {
+    text-align: left;
+    font-size: 14px;
+    color: red;
+    margin-left: 26px;
+}
