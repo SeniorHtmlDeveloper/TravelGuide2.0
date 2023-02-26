@@ -30,12 +30,12 @@ window.onkeydown = function (event) {
 const map = new mapgl.Map('map', {
     center: [0, 0],
     zoom: 17,
-    key: "d31240ac-6937-4994-9e2e-a9a3678b6807",
+    key: "fb8d0d9f-3bc8-4879-bed5-da64787286d7",
     zoomControl: 'bottomLeft'
 });
 
 const directions = new mapgl.Directions(map, {
-    directionsApiKey: 'd31240ac-6937-4994-9e2e-a9a3678b6807',
+    directionsApiKey: 'fb8d0d9f-3bc8-4879-bed5-da64787286d7',
 });
 
 // построение маршрута
