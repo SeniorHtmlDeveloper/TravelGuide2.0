@@ -10,6 +10,7 @@ body {
     background: #fff;
     font-family: 'Ramabhadra', sans-serif;
     font-weight: 700;
+    margin: 0px;
 }
 
 
@@ -19,7 +20,9 @@ body {
 
 
 .container {
+    
     width: 1400px;
+    max-width: 90%;
     margin: 0 auto;
     margin-top: 50px;
 }
@@ -30,6 +33,7 @@ body {
     text-align: center;
     color: #a08afb;
     width: 400px;
+    max-width: 100%;
     padding: 20px 0;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -46,12 +50,14 @@ body {
 
 .reg {
     width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     padding-top: 1px;
     border: 2px solid #a08afb;
     border-radius: 50px;
     /* box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); */
     transition: all 0.5s ease;
+    margin-bottom: 40px;
 }
 
 
@@ -114,6 +120,7 @@ body {
 
 .form__field {
     width: 500px;
+    max-width: 90%;
     margin: 0 auto;
     height: 40px;
     border: none;

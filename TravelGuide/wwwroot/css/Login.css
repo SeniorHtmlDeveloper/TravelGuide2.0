@@ -6,6 +6,7 @@
 
 body {
     width: 100%;
+    margin: 0px;
     padding-top: 1px;
     background: #fff;
     font-family: 'Ramabhadra', sans-serif;
@@ -20,6 +21,8 @@ body {
     width: 1400px;
     margin: 0 auto;
     margin-top: 100px;
+    margin-bottom: 100px;
+    max-width: 90%;
 }
 
 
@@ -55,6 +58,9 @@ body {
     .sign-up:hover {
         box-shadow: 0px 0px 10px 0px #a08afb;
     }
+
+
+
 
 
 
@@ -220,4 +226,39 @@ span {
     font-size: 14px;
     color: red;
     margin-left: 26px;
+}
+
+
+
+@media (max-width: 940px) {
+    .sign-up {
+        width: 80%;
+    }
+
+
+    .container__title{
+        width: 100%;
+    }
+
+    .form__field{
+        width: 85%;
+        
+    }
+}
+
+
+
+@media (max-width: 464px) {
+    .create__acc{
+        flex-direction: column;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+
+    .create__acc__link{
+        margin: 0;
+        margin-top: 5px;
+    }
 }
