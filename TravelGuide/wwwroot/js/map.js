@@ -31,7 +31,7 @@ function AddAllMarkers() {
 const map = new mapgl.Map('map', {
     center: [47.504771, 42.98283],
     zoom: 13,
-    key: "d31240ac-6937-4994-9e2e-a9a3678b6807"
+    key: "fb8d0d9f-3bc8-4879-bed5-da64787286d7 "
 });
         
 function GetPlaceColor(type) {
