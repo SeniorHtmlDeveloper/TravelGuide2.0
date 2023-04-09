@@ -1,10 +1,34 @@
-﻿places = {
+﻿
+places = {
     hotel: [],
     attraction: [],
     entertainment: [],
     business: [],
     catering: [],
 };
+
+let popup = null;
+let index = 0;
+
+closePopup = () => popup?.destroy();
+
+function OpenPopup(place) {
+
+    popup?.destroy();
+
+    popup = new mapgl.HtmlMarker(map, {
+        coordinates: [place.Longitude - 0.015, place.Latitude + 0.042],
+        html: `
+            <div class="popup" style="background: #fff; cursor:pointer;">
+                <div class="popup-content">
+                    <p>${place.Name}</p>
+                    <img src="${place.Images.split('||')[0]}" style="height: 300px;" />
+                </div>
+                <div class="popup-tip"></div>
+            </div>
+            `,
+    });
+}
 
 
 function AddAllMarkers() {
@@ -13,47 +37,65 @@ function AddAllMarkers() {
         .then(placemarks => {
             placemarks.forEach(place => {
                 places[place.Type].push(
-                    new mapgl.CircleMarker(map, {
+                    new mapgl.HtmlMarker(map, {
                         coordinates: [place.Longitude, place.Latitude],
-                        radius: 14,
-                        color: GetPlaceColor(place.Type),
-                        strokeWidth: 4,
-                        strokeColor: '#ffffff',
-                        stroke2Width: 6,
-                        stroke2Color: GetPlaceColor(place.Type) + "55",
-                        name: place.Name,
+                        html: `<div class="marker" id="find-me">
+                                        <?xml version="1.0" encoding="utf-8"?>
+                                        <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                                        <svg width="40px"
+                                            height="40px"
+                                            viewBox="0 0 1024 1024"
+                                            class="icon"
+                                            version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"><path d="M512 85.333333c-164.949333 0-298.666667 133.738667-298.666667 298.666667 0 164.949333 298.666667 554.666667 298.666667 554.666667s298.666667-389.717333 298.666667-554.666667c0-164.928-133.717333-298.666667-298.666667-298.666667z m0 448a149.333333 149.333333 0 1 1 0-298.666666 149.333333 149.333333 0 0 1 0 298.666666z" fill="${GetPlaceColor(place.Type)}" />
+                                        </svg>
+                                </div>
+                                <p id="status"></p>`,
                     })
                 );
+
+                console.log(places[place.Type][places[place.Type].length - 1])
+
+                places[place.Type][places[place.Type].length - 1]
+                    .getContent()
+                    .querySelector('#find-me')
+                    .addEventListener('mouseover', () => OpenPopup(place));
+
+                places[place.Type][places[place.Type].length - 1]
+                    .getContent()
+                    .querySelector('#find-me')
+                    .addEventListener('mouseout', () => popup?.destroy());
+
             });
         });
 }
 
-const map = new mapgl.Map('map', {
-    center: [47.504771, 42.98283],
-    zoom: 13,
-    key: "fb8d0d9f-3bc8-4879-bed5-da64787286d7 "
-});
-        
+
+   
 function GetPlaceColor(type) {
     switch (type) {
         case "hotel":
-            return "#c21515";
+            return "#FF0000";
         case "attraction":
             return "#0088ff";
         case "entertainment":
             return "#05ab1b";
         case "business":
-            return "#e5f018";
+            return "#008080";
         case "catering":
             return "#bf16e0";
     }
 }
 
-
+const map = new mapgl.Map('map', {
+    center: [47.504771, 42.98283],
+    zoom: 13,
+    key: "fb8d0d9f-3bc8-4879-bed5-da64787286d7"
+});
 
 AddAllMarkers();
 
- 
+
 
 let menuList = document.querySelector(".menu__list");
 
@@ -77,39 +119,7 @@ menuBtn.addEventListener("click", function () {
 })
 
 //MENU
-const placesBlock = document.querySelectorAll(".place__block");
-const 
 
-placesBlock.forEach(item => {
-    item.addEventListener("click", () => {
-        if (!item.classList.contains("active__block")) {
-
-            item.classList.add("active__block");
-            let type = item.getAttribute("data-type");
-            for (let key in places) {
-                if (key != type) {
-                    console.log(places[key])
-                    for (let i = 0; i < places[key].length; i++) {
-
-                        places[key][i].destroy();
-                    }
-                }
-            }
-        } else {
-            for (let key in places) {
-                for (let i = 0; i < places[key].length; i++) {
-                    places[key][i].destroy();
-                }
-                places[key] = [];
-            }
-            AddAllMarkers();
-            item.classList.remove("active__block")
-        }
-        
-        
-    });
-    
-});
 
 const myInput = document.querySelector(".menu__input");
 const search = document.getElementById("search");
@@ -136,16 +146,3 @@ search.addEventListener("click", () => {
        
     }
 });
-
-//hotelCheckbox.addEventListener("click", () => {
-//    let type = hotelCheckbox.value;
-//    for (let key in places) {
-//        if (key != type) {
-//            console.log(places[key])
-//            for (let i = 0; i < places[key].length; i++) {
-//                console.log(places[key][i])
-//                places[key][i].destroy();
-//            }
-//        }
-//    }
-//});

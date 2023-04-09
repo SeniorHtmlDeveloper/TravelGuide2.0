@@ -1,4 +1,7 @@
-﻿let mapBtns = document.querySelectorAll(".card__about__map");
+﻿
+
+
+let mapBtns = document.querySelectorAll(".card__about__map");
 let mapDiv = document.getElementById("map");
 let blur = document.getElementById("blur");
 let longitude = 0;
@@ -155,47 +158,3 @@ mapBtns.forEach(item => {
     });
 });
 
-
-// Range
-function rangeOnload() {
-    console.log("onload")
-    const target = document.getElementById("rating");
-    const min = target.min
-    const max = target.max
-    const val = target.value
-
-    target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-}
-
-function handleInputChange() {
-    const target = document.getElementById("rating");
-    const min = target.min
-    const max = target.max
-    const val = target.value
-
-    target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
-}
-document.addEventListener("DOMContentLoaded", rangeOnload);
-
-
-
-//combobox
-const comboBox = document.querySelector('.combobox__title');
-const comboBoxList = document.querySelector(".combobox__list");
-const comboBoxItems = document.querySelectorAll('.combobox__list__item');
-const sort = document.getElementById("sort");
-
-comboBox.addEventListener('click', function () {
-    comboBoxList.classList.toggle('active');
-
-});
-
-comboBoxItems.forEach(item => {
-    item.addEventListener("click", () => {
-        console.log(item.innerHTML)
-        comboBoxList.classList.toggle('active');
-        let sortView = item.getAttribute("data-value")
-        sort.value = sortView;
-        comboBox.innerHTML = item.innerHTML;
-    });
-});
