@@ -16,7 +16,7 @@
         </div>
     
     <form method="post">
-        <div class="adaptive__settings">
+       @* <div class="adaptive__settings">
             <button class="btn__adapt" type="submit">Показать фильтры</button>
 
             <div class="catalog__settingays">
@@ -44,14 +44,14 @@
                     @for (int i = 0; i < Model.CurrentFilter.Budget.Count; i++)
                     {
 
-                        <label class="path__checkbox" for=@(Model.CurrentFilter.Budget[i].FilterElementId + (i+1).ToString())>@Model.CurrentFilter.Budget[i].FilterText
-                            <input class="checkbox"
+                        <label class="path1__checkbox" for=@(Model.CurrentFilter.Budget[i].FilterElementId + (i+1).ToString())>@Model.CurrentFilter.Budget[i].FilterText
+                            <input class="checkbox1"
                            type=@Model.CurrentFilter.Budget[i].FilterType
                            name=@Model.CurrentFilter.Budget[i].FilterName
                            value=@Model.CurrentFilter.Budget[i].FilterValue
                            id=@(Model.CurrentFilter.Budget[i].FilterElementId + (i+1).ToString())
                            @if(Model.CurrentFilter.Budget[i].IsCheckedOrSelected){<text>checked</text>} />
-                        <span class="checkbox__restyle"></span>
+                        <span class="checkbox1__restyle"></span>
                         </label>
                         
                     }
@@ -66,18 +66,18 @@
                     @for (int i = 0; i < Model.CurrentFilter.Stars.Count; i++)
                     {
 
-                        <label class="path__checkbox" for=@(Model.CurrentFilter.Stars[i].FilterElementId + (i+1).ToString())>
+                        <label class="path1__checkbox" for=@(Model.CurrentFilter.Stars[i].FilterElementId + (i+1).ToString())>
                             @for (int j = 0; j < int.Parse(Model.CurrentFilter.Stars[i].FilterText); j++){
                                 <img class="card__about__img" height="13px" width="13px" src="~/img/full_star.png">
                             }
                             
-                            <input class="checkbox"
+                         <input class="checkbox1"
                            type=@Model.CurrentFilter.Stars[i].FilterType
                            name=@Model.CurrentFilter.Stars[i].FilterName
                            value=@Model.CurrentFilter.Stars[i].FilterValue
                            id=@(Model.CurrentFilter.Stars[i].FilterElementId + (i+1).ToString())
                            @if(Model.CurrentFilter.Stars[i].IsCheckedOrSelected){<text>checked</text>} />
-                        <span class="checkbox__restyle"></span>
+                        <span class="checkbox1__restyle"></span>
                         </label>
                         
                     }
@@ -103,7 +103,7 @@
 
             </div>
 
-        </div>
+        </div>*@
 
         @*      без адаптации       *@
 
