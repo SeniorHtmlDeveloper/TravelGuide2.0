@@ -24,55 +24,70 @@
                 </div>
 
 
-                <label>
-                    Отель
-                    <input type="checkbox" checked class="type" />
-                </label>
-                <label>
-                    Достопримечательность
-                    <input type="checkbox" checked class="type" />
-                </label>
-                <label>
-                    Развлечение
-                    <input type="checkbox" checked class="type" />
-                </label>
-                <label>
-                    Бизнес
-                    <input type="checkbox" checked class="type" />
-                </label>
-                <label>
-                    Общепит
-                    <input type="checkbox" checked class="type" />
-                </label>
+                <div class="labels">
+                    <div class="labels__place">
+                        <div class="label__title">
+                            Место
+                        </div>
+                        <label>
+                            Отель
+                            <input type="checkbox" checked class="type" />
+                        </label>
+                        <label>
+                            Достопримечательность
+                            <input type="checkbox" checked class="type" />
+                        </label>
+                        <label>
+                            Развлечение
+                            <input type="checkbox" checked class="type" />
+                        </label>
+                        <label>
+                            Бизнес
+                            <input type="checkbox" checked class="type" />
+                        </label>
+                        <label>
+                            Общепит
+                            <input type="checkbox" checked class="type" />
+                        </label>
+                        <label>Рейтинг
+                            <input type="range" min="0" max="10" value="0" class="rating" />
+                        </label>
+                        
 
+                        
+                    </div>
+                    <div class="labels__price">
+                        <div class="label__title">
+                            Стоимость
+                        </div>
+                        <label>
+                            до 2 000 ₽
+                            <input type="checkbox" checked class="price" />
+                        </label>
+                        <label>
+                            2 000 - 4 000 ₽
+                            <input type="checkbox" checked class="price" />
+                        </label>
+                        <label>
+                            4 000 - 6 000 ₽
+                            <input type="checkbox" checked class="price" />
+                        </label>
+                        <label>
+                            6 000 - 8 000 ₽
+                            <input type="checkbox" checked class="price" />
+                        </label>
+                        <label>
+                            8 000 - 11 000 ₽
+                            <input type="checkbox" checked class="price" />
+                        </label>
+                        <label>
+                            более 11 000 ₽
+                            <input type="checkbox" checked class="price" />
+                        </label>
+                    </div>
+                </div>
 
-                <label>
-                    до 2 000 ₽
-                    <input type="checkbox" checked class="price" />
-                </label>
-                <label>
-                    2 000 - 4 000 ₽
-                    <input type="checkbox" checked class="price" />
-                </label>
-                <label>
-                    4 000 - 6 000 ₽
-                    <input type="checkbox" checked class="price" />
-                </label>
-                <label>
-                    6 000 - 8 000 ₽
-                    <input type="checkbox" checked class="price" />
-                </label>
-                <label>
-                    8 000 - 11 000 ₽
-                    <input type="checkbox" checked class="price" />
-                </label>
-                <label>
-                    более 11 000 ₽
-                    <input type="checkbox" checked class="price" />
-                </label>
-
-                <label>Рейтинг</label>
-                <input type="range" min="0" max="10" value="0" class="rating" />
+                
 
 
                 @*<div class="place__blocks">

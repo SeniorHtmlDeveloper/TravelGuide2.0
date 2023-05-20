@@ -19,12 +19,18 @@ function OpenPopup(place) {
     popup = new mapgl.HtmlMarker(map, {
         coordinates: [place.Longitude - 0.015, place.Latitude + 0.042],
         html: `
-            <div class="popup" style="background: #fff; cursor:pointer;">
-                <div class="popup-content">
-                    <p>${place.Name}</p>
-                    <img src="${place.Images.split('||')[0]}" style="height: 300px;" />
+            <div class="popup" >
+                <div class="popup__content">
+                    
+                    <img class="popup__img" src="${place.Images.split('||')[0]}" />
+                    
+                    <div class="popup-tip">
+                        <p class="popup__name">${place.Name}</p>
+                        <div class="popup__desc">${place.Name}</div>
+                    </div>
+
                 </div>
-                <div class="popup-tip"></div>
+
             </div>
             `,
     });
@@ -90,7 +96,7 @@ function GetPlaceColor(type) {
 const map = new mapgl.Map('map', {
     center: [47.504771, 42.98283],
     zoom: 13,
-    key: "fb8d0d9f-3bc8-4879-bed5-da64787286d7"
+    key: "bd639b66-3cf2-4ed6-91a1-48f5d7d6bee1"
 });
 
 AddAllMarkers();
