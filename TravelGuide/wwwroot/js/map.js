@@ -17,7 +17,7 @@ function OpenPopup(place) {
     popup?.destroy();
 
     popup = new mapgl.HtmlMarker(map, {
-        coordinates: [place.Longitude - 0.015, place.Latitude + 0.042],
+        coordinates: [place.Longitude - 0.015, place.Latitude + 0.042], 
         html: `
             <div class="popup" >
                 <div class="popup__content">
@@ -26,7 +26,7 @@ function OpenPopup(place) {
                     
                     <div class="popup-tip">
                         <p class="popup__name">${place.Name}</p>
-                        <div class="popup__desc">${place.Name}</div>
+                        <div class="popup__desc">${place.Description}</div>
                     </div>
 
                 </div>
