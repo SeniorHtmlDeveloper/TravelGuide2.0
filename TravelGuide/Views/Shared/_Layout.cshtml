@@ -50,11 +50,11 @@
 			<a class="nav__links" asp-controller="Main" asp-action="Map">Карта</a>
             @if (User.Identity.IsAuthenticated)
             {
-                <a class="nav__link" asp-controller="Account" asp-action="Logout">Выход</a>
+                <a class="nav__links" asp-controller="Account" asp-action="Logout">Выход</a>
             }
             else
             {
-                <a class="nav__link" asp-controller="Account" asp-action="Login">Вход</a>
+                <a class="nav__links" asp-controller="Account" asp-action="Login">Вход</a>
             }
 		</div>
     </div>	
