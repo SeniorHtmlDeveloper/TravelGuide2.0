@@ -1,48 +1,47 @@
-﻿
-
-
-let mapBtns = document.querySelectorAll(".card__about__map");
-let mapDiv = document.getElementById("map");
-let blur = document.getElementById("blur");
-let longitude = 0;
-let latitude = 0;
-
-
-// закрытие нажатием на экран
-
-blur.addEventListener("click", function (event) {
-
-    if (mapDiv.style.visibility == 'visible') {
-        mapDiv.style.visibility = 'hidden'
-        blur.style.visibility = 'hidden'
-    }
-
-});
-
-// закрытие клавишой ESC
-
-window.onkeydown = function (event) {
-    if (event.keyCode == 27) {
-        if (mapDiv.style.visibility == 'visible') {
-            mapDiv.style.visibility = 'hidden'
-            blur.style.visibility = 'hidden'
-        }
-    }
-};
+let loc = document.querySelector(".loc");
+console.log(loc.getAttribute("data-place-longitude"))
+let longitude = parseFloat(loc.getAttribute("data-place-longitude").replace(",", "."));
+let latitude = parseFloat(loc.getAttribute("data-place-latitude").replace(",", "."));
 
 const map = new mapgl.Map('map', {
-    center: [0, 0],
+    center: [longitude, latitude],
     zoom: 17,
     key: "bd639b66-3cf2-4ed6-91a1-48f5d7d6bee1",
     zoomControl: 'bottomLeft',
     disableZoomOnScroll: true,
 });
 
+let marker = new mapgl.Marker(map, {
+    coordinates: [longitude, latitude],
+
+});
+
 const directions = new mapgl.Directions(map, {
     directionsApiKey: 'bd639b66-3cf2-4ed6-91a1-48f5d7d6bee1',
 });
 
-// построение маршрута
+const exit = new mapgl.Control(map, '<button style="font-size: 20px; font-weight: 600; font-family: Arial; background: transparent; cursor: pointer; " >X</button>', {
+    position: 'topRight',
+
+});
+
+exit
+    .getContainer()
+    .querySelector('button')
+    .addEventListener('click', () => {
+        directions.clear();
+        map.setCenter([longitude, latitude]);
+        marker.destroy();
+        circle.destroy();
+        map.setZoom(17);
+        marker = new mapgl.Marker(map, {
+            coordinates: [longitude, latitude],
+
+        });
+    });
+
+
+// ���������� ��������
 const controlContent = `
                 <div class="buttonRoot" id="find-me">
                     <button class="button">
@@ -88,9 +87,8 @@ function success(pos) {
         stroke2Color: '#0088ff55',
     });
     map.setCenter(center);
-    map.setZoom(14);
-    console.log([longitude, latitude], [pos.coords.longitude, pos.coords.latitude])
-    directions.carRoute({   
+    map.setZoom(13);
+    directions.carRoute({
         points: [
             [longitude, latitude],
             [pos.coords.longitude, pos.coords.latitude]
@@ -106,7 +104,7 @@ function geoFindMe() {
     if (!navigator.geolocation) {
         status.textContent = 'Geolocation is not supported by your browser';
     } else {
-        status.textContent = 'Locating…';
+        status.textContent = 'Locating�';
         navigator.geolocation.getCurrentPosition(success, error);
     }
 }
@@ -115,47 +113,3 @@ control
     .getContainer()
     .querySelector('#find-me')
     .addEventListener('click', geoFindMe);
-
-
-// кнопка выход
-const exit = new mapgl.Control(map, '<button style="font-size: 20px; font-weight: 600; font-family: Arial; background: transparent; cursor: pointer; " >X</button>', {
-    position: 'topRight',
-   
-});
-
-exit
-    .getContainer()
-    .querySelector('button')
-    .addEventListener('click', () => {
-        mapDiv.style.visibility = "hidden";
-        blur.style.visibility = "hidden";
-    });
-
-
-
-// на карте
-let marker = new mapgl.Marker(map, {
-    coordinates: [0, 0],
-
-});
-
-mapBtns.forEach(item => {
-    item.addEventListener("click", () => {
-        longitude = parseFloat(item.getAttribute("data-placemark-longitude").replace(",", "."));
-        latitude = parseFloat(item.getAttribute("data-placemark-latitude").replace(",", "."));
-
-        directions.clear();
-
-        mapDiv.style.visibility = "visible";
-        blur.style.visibility = "visible";
-
-        map.setCenter([longitude, latitude]);
-        map.setZoom(17);
-        marker.destroy();
-        marker = new mapgl.Marker(map, {
-            coordinates: [longitude, latitude],
-        
-        });
-    });
-});
-

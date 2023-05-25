@@ -215,7 +215,7 @@
                         </div>
                         <div class="card__price__inner">
                             @if(Model.CurrentPlaceType == "hotel"){
-                                <div class="card__price__inner__price">@place.Price</div>
+                                <div class="card__price__inner__price">@Convert.ToInt32(place.Price)</div>
                                 <div class="card__price__inner__txt">На 1 ночь</div>
                             }
                             <a class="btn" asp-controller="Place" asp-action="Place" asp-route-id=@place.PlacemarkId>Подробнее</a>
@@ -246,6 +246,7 @@
 
 @section Scripts{
     <script src="~/js/FilterPlaces.js"></script>
-@*    <script src="https://mapgl.2gis.com/api/js/v1"></script>
-    <script src="~/js/HotelMap.js"></script>*@
+    <script src="https://mapgl.2gis.com/api/js/v1"></script>
+    <script src="https://unpkg.com/@@2gis/mapgl-directions@@^2/dist/directions.js"></script>
+    <script src="~/js/HotelMap.js"></script>
 }

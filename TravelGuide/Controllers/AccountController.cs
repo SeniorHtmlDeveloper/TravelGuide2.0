@@ -72,7 +72,6 @@ namespace TravelGuide.Controllers
                 else
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
-            model.RegisterState = ModelState;
             return View(model);
         }
     
@@ -93,7 +92,7 @@ namespace TravelGuide.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Main", "Main");
         }
 
     }

@@ -37,7 +37,7 @@
 					<div class="card__inner">
 						<div class="hotel__price">
 							<div class="price__info">начальная цена</div>
-						<div class="price">@Model.Placemark.Price</div>
+						<div class="price">@Convert.ToInt32(Model.Placemark.Price)</div>
 							<div class="price__info">за номер в сутки</div>
 						
 						</div>
@@ -74,7 +74,8 @@
 				<div class="hotel__about__txt">Описание</div>
 				<div class="hotel__about__info">
 					<p class="hotel__desc">@Model.Placemark.Description</p>
-					<div id="map" data-place-longitude=@Model.Placemark.Longitude data-place-latitude=@Model.Placemark.Latitude></div>
+					<span class="loc" data-place-longitude=@Model.Placemark.Longitude data-place-latitude=@Model.Placemark.Latitude></span>
+					<div id="map"></div>
 				</div>
 			</div>	
 			
@@ -123,7 +124,7 @@
 									<div class="comment__list__info">
 										<h3 class="comment__list__name">@review.User.FullName</h3>
 									</div>
-									<h3 class="comment__list__date">@review.Date</h3>
+									<h3 class="comment__list__date">@review.Date.Value.Date.ToLongDateString()</h3>
 								</div>
 								<h3 class="comment__list__rating">@review.Rating</h3>
 								<h3 class="comment__list__text">@review.Text</h3>
@@ -145,5 +146,7 @@
 
 @section scripts{
 	<script src="https://mapgl.2gis.com/api/js/v1"></script>
+	<script src="https://unpkg.com/@@2gis/mapgl-directions@@^2/dist/directions.js"></script>
+	<script src="~/js/Placemap.js"></script>
 	<script src="~/js/site.js"></script>
 }

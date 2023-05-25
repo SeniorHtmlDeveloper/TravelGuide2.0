@@ -20,7 +20,14 @@
                     <a class="nav__link" asp-controller="Place" asp-action="ListPlaces" asp-route-type="business">Бизнес</a>
                     <a class="nav__link" asp-controller="Place" asp-action="ListPlaces" asp-route-type="catering">Общепит</a>
                     <a class="nav__link" asp-controller="Main" asp-action="Map">Карта</a>
-                    <a class="nav__link" asp-controller="Account" asp-action="Login">Вход</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a class="nav__link" asp-controller="Account" asp-action="Logout">Выход</a>
+                    }
+                    else
+                    {
+                        <a class="nav__link" asp-controller="Account" asp-action="Login">Вход</a>
+                    }
                 </nav>
                 <div class="burger">
                     <div class="burger__inner"></div>
@@ -41,7 +48,14 @@
 			<a class="nav__links" asp-controller="Place" asp-action="ListPlaces" asp-route-type="business">Бизнес</a>
 			<a class="nav__links" asp-controller="Place" asp-action="ListPlaces" asp-route-type="catering">Общепит</a>
 			<a class="nav__links" asp-controller="Main" asp-action="Map">Карта</a>
-			<a class="nav__links" asp-controller="Account" asp-action="Login">Вход</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="nav__link" asp-controller="Account" asp-action="Logout">Выход</a>
+            }
+            else
+            {
+                <a class="nav__link" asp-controller="Account" asp-action="Login">Вход</a>
+            }
 		</div>
     </div>	
 

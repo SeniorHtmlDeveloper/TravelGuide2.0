@@ -96,6 +96,7 @@ namespace TravelGuide.Controllers
         {
             var place = db.Placemarks.Find(id);
             var reviews = db.Reviews.Where(r => r.PlacemarkId == id).ToList();
+
             var users = db.Users.ToList();
             var model = new PlaceViewModel() { Reviews = reviews, Placemark = place, Users = users };
             return View(model);
@@ -105,7 +106,7 @@ namespace TravelGuide.Controllers
         public IActionResult Place(int rating, string text, int placeId)
         {
             AddRatingToDb(rating, text, placeId);
-            return RedirectToAction("Place", "Main", new { id = placeId });
+            return RedirectToAction("Place", "Place", new { id = placeId });
 
         }
 
@@ -164,6 +165,8 @@ namespace TravelGuide.Controllers
             }
             return newPlaces;
         }
+
+       
 
         private void AddRatingToDb(int rating, string text, int placeId)
         {

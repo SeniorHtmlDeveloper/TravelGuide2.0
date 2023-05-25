@@ -23,6 +23,5 @@ namespace TravelGuide.Models
         [Required(ErrorMessage = "Пароль введен неверно")]
         public string ConfirmPassword { get; set; }
 
-        public ModelStateDictionary RegisterState { get; set; }
     }
 }

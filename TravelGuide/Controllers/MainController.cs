@@ -48,7 +48,14 @@ namespace TravelGuide.Controllers
         }
 
         
-
+        public IActionResult GetIcon()
+        {
+			string rootDirectory = AppContext.BaseDirectory;
+			string placemarksPath = rootDirectory.Substring(0, rootDirectory.IndexOf("bin")) + "wwwroot\\img\\icon.svg";
+			string fileType = "application/svg";
+			string fileName = "icon.svg";
+			return PhysicalFile(placemarksPath, fileType, fileName);
+		}
         
 
         private async void PlacemarksToJsonAsync(IEnumerable<Placemark> placemarks)
