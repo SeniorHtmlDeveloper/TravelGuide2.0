@@ -12,22 +12,30 @@ console.log(desc);
 desc.addEventListener('click', function () {
 	curseList[1].classList.remove('curse__active');
 	curseList[0].classList.add('curse__active');
-	document.querySelector('.hotel__comm').classList.remove('animation__comm');
-	document.querySelector('.hotel__comm').classList.remove('active__comm');
+	document.querySelector('.hotel__about').classList.remove('invis');
+	setTimeout(function () {
+		document.querySelector('.hotel__comm').classList.remove('animation__comm');
+		document.querySelector('.hotel__comm').classList.remove('active__comm');
 
-	document.querySelector('.hotel__about').classList.add('animation');
-	document.querySelector('.hotel__about').classList.add('active');
+		document.querySelector('.hotel__about').classList.add('animation');
+		document.querySelector('.hotel__about').classList.add('active');
+	}, 100)
 });
 
 
 comm.addEventListener('click', function () {
 	curseList[0].classList.remove('curse__active')
 	curseList[1].classList.add('curse__active')
-	document.querySelector('.hotel__about').classList.remove('animation');
-	document.querySelector('.hotel__about').classList.remove('active');
-	document.querySelector('.hotel__comm').classList.add('animation__comm');
-	document.querySelector('.hotel__comm').classList.add('active__comm');
-
+	setTimeout(function () {
+		console.log("test");
+		document.querySelector('.hotel__about').classList.add('invis');
+	}, 500)
+	setTimeout(function () {
+		document.querySelector('.hotel__about').classList.remove('animation');
+		document.querySelector('.hotel__about').classList.remove('active');
+		document.querySelector('.hotel__comm').classList.add('animation__comm');
+		document.querySelector('.hotel__comm').classList.add('active__comm');
+	}, 100)
 });
 
 

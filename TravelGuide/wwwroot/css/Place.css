@@ -394,10 +394,13 @@
     transition: all ease 0.4s;
     opacity: 1;
     margin-top: 40px;
+    display: block;
 }
 
 
-
+.invis{
+    display: none;
+}
 
 
 
